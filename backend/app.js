@@ -38,7 +38,9 @@ app.post('/signup', celebrate({
   }),
 }), createUser);
 
-app.use(router);
+// eslint-disable-next-line no-undef
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/api', router);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
