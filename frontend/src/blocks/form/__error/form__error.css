@@ -1,0 +1,16 @@
+.form__error {
+    font-weight: 400;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    height: 40px;
+    /* margin-bottom: 15px; */
+    opacity: 0;
+    text-align: left;
+    visibility: hidden;
+}
+ 
+.form__error:last-child {
+    margin-bottom: 13px;
+} 
