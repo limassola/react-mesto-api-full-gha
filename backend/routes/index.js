@@ -10,8 +10,8 @@ const handleInvalidPath = (req, res, next) => {
 };
 
 router.use(auth);
-router.use('api/users', userRoutes);
-router.use('api/cards', cardRoutes);
+router.use('/users', userRoutes);
+router.use('/cards', cardRoutes);
 router.use(handleInvalidPath);
 
 module.exports = router;
