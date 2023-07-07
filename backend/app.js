@@ -38,7 +38,7 @@ app.post('/signup', celebrate({
   }),
 }), createUser);
 
-app.use(router);
+app.use('/api', router);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
