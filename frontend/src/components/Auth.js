@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://limassola.nomoreparties.sbs';
+export const BASE_URL = 'https://api.limassola.nomoreparties.sbs';
 
 export const signup = (password, email) => {
     return fetch(`${BASE_URL}/signup`, {
