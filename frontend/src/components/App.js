@@ -211,8 +211,8 @@ function App() {
         </Header> : null}
         <Routes>
             <Route path='/' element={<ProtectedRouteElement element={Main} loggedIn={loggedIn}  onEditProfile={handleOpenEditPopup} onAddPlace={handleOpenPlacePopup} onEditAvatar={handleOpenProfilePopup} onCardClick={handleCardClick} cards={cards} onCardLike={handleCardLike} onCardDelete={handleCardDelete}/>}/>
-            <Route path='/sign-in' element={<Login login={login}/>}/>
-            <Route path='/sign-up' element={<Register registration={registration}/>}/>
+            <Route path='/signin' element={<Login login={login}/>}/>
+            <Route path='/signup' element={<Register registration={registration}/>}/>
             <Route path='/' element={loggedIn ? <Navigate to='/'/> : <Navigate to='/login' replace/>}/>
         </Routes>
         {loggedIn ? <Footer/> : null}
