@@ -32,7 +32,7 @@ function Register({registration}) {
     return(
         <>
             <Header>
-                <Link className="header__link" to="/sign-in">Войти</Link>
+                <Link className="header__link" to="/signin">Войти</Link>
             </Header>
             <form className="form form_type_login" onSubmit={handleSubmit}>
                 <h2 className="form__title form__title_type_login">Регистрация</h2>
@@ -55,7 +55,7 @@ function Register({registration}) {
                 required
                 />
                 <button type="submit"  className="form__button form__button_type_login">Зарегистрироваться</button>
-                <Link className="form__link" to="/sign-in">Уже зарегистрированы? Войти</Link>
+                <Link className="form__link" to="/signin">Уже зарегистрированы? Войти</Link>
             </form>
         </>
     )

@@ -71,7 +71,7 @@ function App() {
 
     function signOut(){
         localStorage.removeItem('jwt');
-        navigate('/sign-in');
+        navigate('/signin');
         setloggedIn(false)
       }
 
@@ -166,7 +166,7 @@ function App() {
     function closeInfoPopup() {
         setInfoTooltipOpen(false)
         if(isSuccess) {
-            navigate('/sign-in')
+            navigate('/signin')
         }
         
     }
@@ -213,7 +213,7 @@ function App() {
             <Route path='/' element={<ProtectedRouteElement element={Main} loggedIn={loggedIn}  onEditProfile={handleOpenEditPopup} onAddPlace={handleOpenPlacePopup} onEditAvatar={handleOpenProfilePopup} onCardClick={handleCardClick} cards={cards} onCardLike={handleCardLike} onCardDelete={handleCardDelete}/>}/>
             <Route path='/signin' element={<Login login={login}/>}/>
             <Route path='/signup' element={<Register registration={registration}/>}/>
-            <Route path='/' element={loggedIn ? <Navigate to='/'/> : <Navigate to='/login' replace/>}/>
+            <Route path='/' element={loggedIn ? <Navigate to='/'/> : <Navigate to='/signin' replace/>}/>
         </Routes>
         {loggedIn ? <Footer/> : null}
         <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser}/>

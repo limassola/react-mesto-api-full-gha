@@ -30,7 +30,7 @@ function Login({login}) {
     return(
         <>
             <Header>
-                <Link className="header__link" to="/sign-up">Регистрация</Link>
+                <Link className="header__link" to="/signup">Регистрация</Link>
             </Header>
             <form className="form form_type_login" onSubmit={handleSubmit}>
                 <h2 className="form__title form__title_type_login">Вход</h2>
