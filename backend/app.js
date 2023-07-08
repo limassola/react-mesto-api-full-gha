@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { celebrate, Joi, errors } = require('celebrate');
 const router = require('./routes');
@@ -20,6 +21,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
@@ -38,8 +40,6 @@ app.post('/signup', celebrate({
   }),
 }), createUser);
 
-// eslint-disable-next-line no-undef
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(router);
 app.use(errorLogger);
 app.use(errors());
