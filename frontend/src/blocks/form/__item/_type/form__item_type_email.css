@@ -1,0 +1,13 @@
+.form__item_type_email {
+    height: 27px;
+    border-bottom: 2px solid #CCCCCC;
+    margin-bottom: 30px;
+    background-color: transparent;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #CCCCCC;
+}
