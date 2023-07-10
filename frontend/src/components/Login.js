@@ -24,7 +24,7 @@ function Login({login}) {
         e.preventDefault();
 
         const {email, password} = formValue;
-        login(password, email)
+        login(email, password)
     }
 
     return(

@@ -15,6 +15,7 @@ class Api {
     getInitialCards() {
         return fetch(`${this._url}cards`, {
             method: 'GET',
+            credentials: 'include',
             headers: this._headers,
         }).then(this._handleResponse)
 
@@ -23,6 +24,7 @@ class Api {
     addCard(name, link) {
         return fetch(`${this._url}cards`, {
             method: 'POST',
+            credentials: 'include',
             headers: this._headers,
             body: JSON.stringify({
                 name: name,
@@ -35,6 +37,7 @@ class Api {
     deleteCard(id) {
         return fetch(`${this._url}cards/${id}`, {
             method: 'DELETE',
+            credentials: 'include',
             headers: this._headers,
         })
         .then(this._handleResponse)
@@ -43,6 +46,7 @@ class Api {
     getUserInfo() {
         return fetch(`${this._url}users/me`, {
             method: 'GET',
+            credentials: 'include',
             headers: this._headers,
         })
         .then(this._handleResponse)
@@ -51,6 +55,7 @@ class Api {
     editUserInfo(name, about) {
         return fetch(`${this._url}users/me`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: this._headers,
             body: JSON.stringify({
                 name: name,
@@ -63,6 +68,7 @@ class Api {
     setAvatar(link) {
         return fetch(`${this._url}users/me/avatar`, {
             method: 'PATCH',
+            credentials: 'include',
             headers: this._headers,
             body: JSON.stringify({
                 avatar: link,
@@ -74,6 +80,7 @@ class Api {
     addLike(id) {
         return fetch(`${this._url}cards/${id}/likes`, {
             method: 'PUT',
+            credentials: 'include',
             headers: this._headers,
         })
         .then(this._handleResponse)
@@ -82,6 +89,7 @@ class Api {
     removeLike(id) {
         return fetch(`${this._url}cards/${id}/likes`, {
             method: 'DELETE',
+            credentials: 'include',
             headers: this._headers,
         })
         .then(this._handleResponse)
@@ -91,6 +99,7 @@ class Api {
         const method = isLiked ? 'DELETE' : 'PUT';
         return fetch(`${this._url}cards/${id}/likes`, {
             method: method,
+            credentials: 'include',
             headers: this._headers,
         })
         .then(this._handleResponse)
@@ -99,10 +108,10 @@ class Api {
 }
 
 const api = new Api({
-    url:'https://mesto.nomoreparties.co/v1/cohort-62/',
+    url:' http://localhost:3000/',
     headers: {
       'content-type': 'application/json',
-      'authorization': 'b0a7590b-647f-433a-aa05-717d75f49ba7',
+      "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
     }
   })
 

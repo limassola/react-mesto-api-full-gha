@@ -57,8 +57,9 @@ function App() {
         if (jwt) {
             checkValidity(jwt)
             .then((user) => {
+                console.log(user)
                 handleLogin()
-                setUserData(user.data.email)
+                setUserData(user.data.data.email)
                 navigate('/')
             })
             .catch(err => console.log(err))
@@ -87,6 +88,7 @@ function App() {
     React.useEffect(() => {
         api.getUserInfo()
         .then((data) => {
+            console.log(data)
             setCurrentUser(data)
         })
         .catch((err) => {
@@ -171,11 +173,12 @@ function App() {
         
     }
 
-    function login(password, email) {
-        signin(password, email)
+    function login(email, password) {
+        signin(email, password)
         .then((data) => {
-            if(data.token) {
-                localStorage.setItem('jwt', data.token)
+            console.log(data)
+            if(data) {
+                localStorage.setItem('jwt', document.cookie)
                 handleLogin()
                 navigate('/')
             }
@@ -205,7 +208,7 @@ function App() {
         {loggedIn ? 
         <Header signOut={signOut}>
             <div className='header__container'>
-                <p className='header__item'>{userData}</p>
+                <p className='header__item'>{userData.email}</p>
                 <a onClick={signOut} className='header__link'>Выйти</a>
             </div>
         </Header> : null}
