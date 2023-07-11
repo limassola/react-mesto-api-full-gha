@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'api.limassola.nomoreparties.sbs';
 
 export const signup = (password, email) => {
     return fetch(`${BASE_URL}/signup`, {
