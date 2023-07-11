@@ -14,17 +14,32 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const avatarRegex = /^(http|https):\/\/(www.\.)?[a-zA-z0-9-._~:/?#[\]@!$&'()*+,;=]+$/;
 
-const corsOptions = {
-  origin: ['https://limassola.nomoreparties.sbs', 'https://api.limassola.nomoreparties.sbs', 'http://limassola.nomoreparties.sbs', 'http://api.limassola.nomoreparties.sbs', 'http://localhost:3001/', 'http://localhost:3001'],
-  credentials: true,
-  methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
-  redirected: true,
-  exposedHeaders: ['Access-Control-Allow-Origin'],
-};
+const allowedCors = [
+  'https://limassola.nomoreparties.sbs',
+  'http://limassola.nomoreparties.sbs',
+  'localhost:3000',
+];
 
 const app = express();
 
-app.use(cors(corsOptions));
+app.use((req, res, next) => {
+  const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
+  // проверяем, что источник запроса есть среди разрешённых
+  if (allowedCors.includes(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+    res.header('Access-Control-Allow-Origin', "*");
+  }
+
+  const requestHeaders = req.headers['access-control-request-headers'];
+  if (method === 'OPTIONS') {
+    // разрешаем кросс-доменные запросы с этими заголовками
+    res.header('Access-Control-Allow-Headers', requestHeaders);
+    // завершаем обработку запроса и возвращаем результат клиенту
+    return res.end();
+  }
+
+  next();
+});
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
