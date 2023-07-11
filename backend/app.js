@@ -13,9 +13,15 @@ const errorHandler = require('./middlewares/error');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const avatarRegex = /^(http|https):\/\/(www.\.)?[a-zA-z0-9-._~:/?#[\]@!$&'()*+,;=]+$/;
+const corsOptions = {
+  origin: ['https://limassola.nomoreparties.sbs', 'https://api.limassola.nomoreparties.sbs', 'http://limassola.nomoreparties.sbs', 'http://api.limassola.nomoreparties.sbs', 'http://localhost:3001/', 'http://localhost:3001'],
+  credentials: true,
+  methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
+  redirected: true,
+};
 
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
