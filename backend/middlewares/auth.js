@@ -1,3 +1,9 @@
+/* eslint-disable func-call-spacing */
+/* eslint-disable no-spaced-func */
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable function-paren-newline */
+/* eslint-disable no-shadow */
 const jwt = require('jsonwebtoken');
 const InvalidAuth = require('../errors/invalid-auth');
 
