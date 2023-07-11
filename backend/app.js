@@ -21,7 +21,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 });
 
 app.use(cors({
-  origin: ['https://limassola.nomoreparties.sbs'],
+  origin: ['https://limassola.nomoreparties.sbs', 'https://api.limassola.nomoreparties.sbs'],
   credentials: true,
   methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
   redirected: true,
