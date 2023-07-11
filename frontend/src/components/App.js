@@ -57,9 +57,8 @@ function App() {
         if (jwt) {
             checkValidity(jwt)
             .then((user) => {
-                console.log(user)
                 handleLogin()
-                setUserData(user.data.data.email)
+                setUserData(user)
                 navigate('/')
             })
             .catch(err => console.log(err))
@@ -88,7 +87,6 @@ function App() {
     React.useEffect(() => {
         api.getUserInfo()
         .then((data) => {
-            console.log(data)
             setCurrentUser(data)
         })
         .catch((err) => {
@@ -128,7 +126,7 @@ function App() {
         .catch((err) => {
             console.log(err)
         });
-    }, [loggedIn])
+    }, [loggedIn, cards])
 
     function handleCardLike(card) {
         // Снова проверяем, есть ли уже лайк на этой карточке
@@ -176,7 +174,6 @@ function App() {
     function login(email, password) {
         signin(email, password)
         .then((data) => {
-            console.log(data)
             if(data) {
                 localStorage.setItem('jwt', data.token)
                 handleLogin()
