@@ -135,7 +135,7 @@ class Api {
 }
 
 const api = new Api({
-    url:'api.limassola.nomoreparties.sbs/',
+    url:'https://api.limassola.nomoreparties.sbs/',
     
   })
 
