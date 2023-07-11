@@ -15,17 +15,18 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const avatarRegex = /^(http|https):\/\/(www.\.)?[a-zA-z0-9-._~:/?#[\]@!$&'()*+,;=]+$/;
 
 const app = express();
-
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
-  useNewUrlParser: true,
-});
-
 app.use(cors({
   origin: ['https://limassola.nomoreparties.sbs', 'https://api.limassola.nomoreparties.sbs'],
   credentials: true,
   methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
   redirected: true,
 }));
+
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
+  useNewUrlParser: true,
+});
+
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
