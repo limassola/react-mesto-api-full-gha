@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 // eslint-disable-next-line import/no-extraneous-dependencies
-const path = require('path');
+// const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { celebrate, Joi, errors } = require('celebrate');
 const router = require('./routes');
@@ -25,7 +25,7 @@ app.use(corsMiddleware);
 app.use(express.json());
 app.use(cookieParser());
 app.use(requestLogger);
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 //Убрать после ревью
 app.get('/crash-test', () => {
