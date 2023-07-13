@@ -6,6 +6,7 @@
 /* eslint-disable no-shadow */
 const jwt = require('jsonwebtoken');
 const InvalidAuth = require('../errors/invalid-auth');
+require('dotenv').config();
 
 // eslint-disable-next-line consistent-return
 const auth = (req, res, next) => {
