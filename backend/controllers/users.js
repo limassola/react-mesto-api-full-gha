@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
 const jsonWebToken = require('jsonwebtoken');
 const User = require('../models/user');
 const InvalidAuth = require('../errors/invalid-auth');
