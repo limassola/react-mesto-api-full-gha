@@ -34,7 +34,7 @@ export const checkValidity = (token) => {
         mode: 'cors',
         headers: {
             "Content-Type": "application/json",
-            "Authorization" : `Bearer ${token}`
+            // "Authorization" : `Bearer ${token}`
         }
     })
     .then(res => handleResponse(res));
