@@ -11,7 +11,6 @@ const InvalidAuth = require('../errors/invalid-auth');
 const auth = (req, res, next) => {
   const YOUR_JWT = req.cookies.jwt;
   const { SECRET_KEY_DEV } = process.env;
-  // eslint-disable-next-line no-unused-vars
   let payload;
   if (!YOUR_JWT) {
     const error = new InvalidAuth('Требуется авторизация');
@@ -19,7 +18,7 @@ const auth = (req, res, next) => {
   }
 
   try {
-    const payload = jwt.verify(YOUR_JWT, SECRET_KEY_DEV);
+    payload = jwt.verify(YOUR_JWT, SECRET_KEY_DEV);
     console.log('\x1b [31m%s\x1b[0m',
       'Надо исправить. В продакшне используется тот же секретный ключ, что и в режиме разработки.');
   } catch (err) {
