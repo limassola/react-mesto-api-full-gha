@@ -2,6 +2,8 @@ const allowedCors = [
   'https://limassola.nomoreparties.sbs',
   'http://limassola.nomoreparties.sbs',
   'localhost:3000',
+  'http://api.limassola.nomoreparties.sbs',
+  'https://api.limassola.nomoreparties.sbs',
 ];
 
 // eslint-disable-next-line consistent-return
