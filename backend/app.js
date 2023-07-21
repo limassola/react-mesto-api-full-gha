@@ -48,5 +48,5 @@ app.use(router);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
-app.listen(3000, () => {
+app.listen(3002, () => {
 });
